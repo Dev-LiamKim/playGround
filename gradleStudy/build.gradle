@@ -1,0 +1,39 @@
+
+plugins {
+    id 'war'
+    id 'java'
+}
+
+repositories {
+    // Use JCenter for resolving dependencies.
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+
+    implementation 'org.springframework:spring:5.2.12.RELEASE'
+    implementation 'org.springframework:spring-webmvc:5.2.12.RELEASE'
+    //implementation 'org.srpingframework:spring-aop:5.3.2'
+    implementation 'org.springframework:spring-beans:5.2.12.RELEASE'
+    implementation 'org.springframework:spring-context:5.2.12.RELEASE'
+    implementation 'org.springframework:spring-core:5.2.12.RELEASE'
+    implementation 'org.springframework:spring-expression:5.2.12.RELEASE'
+    implementation 'org.springframework:spring-web:5.2.12.RELEASE'
+    implementation 'org.akhikhl.gretty:gretty:2.0.0'
+}
+buildscript {
+    ext {
+        springVersion = '5.2.12.RELEASE'
+    gradleSshVersion = '2.2.0' //아래 gradle-ssh-plugin에서 사용할 버전 명시
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    classpath("org.hidetake:gradle-ssh-plugin:${gradleSshVersion}") //gradle 플러그인 의존성 추가
+    }
+}
